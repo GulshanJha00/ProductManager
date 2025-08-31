@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={styles.element}>
         <div className={styles.title}>
-          <h1>Project Catalog</h1>
+          <h1 onClick={()=> window.location.href = "/"}>Project Catalog</h1>
         </div>
        <div className={styles.links}>
         <Link href={"/product"}><span className={styles.link}>Products</span></Link>

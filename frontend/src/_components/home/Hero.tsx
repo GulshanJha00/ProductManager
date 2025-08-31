@@ -11,8 +11,9 @@ const Hero = () => {
 </p>
 
         <div className={styles.actions}>
-          <button onClick={()=>window.location.href = "/product"} className={styles.primary}>Get Started</button>
-          <button onClick={()=>window.location.href = "/manage"} className={styles.secondary}>Login as Admin</button>
+          <button onClick={()=>window.location.href = "/product"} className={styles.primary}>View Product</button>
+          <button onClick={()=>window.location.href = "/manage"} className={styles.primary}>Manage Products(CMS)</button>
+          <button onClick={()=>window.location.href = "/login"} className={styles.secondary}>Login as Admin</button>
         </div>
       </div>
     </section>

@@ -21,6 +21,8 @@
 }
 .element > .title > h1 {
   font-size: 36px;
+    cursor: pointer;
+
 }
 .links {
   display: flex;
@@ -44,6 +46,8 @@
 @media screen and (max-width: 600px) {
   .element > .title > h1 {
     font-size: 12px;
+    cursor: pointer;
+
   }
   .link {
     font-size: 10px;
