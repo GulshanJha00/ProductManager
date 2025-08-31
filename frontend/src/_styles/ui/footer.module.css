@@ -1,0 +1,42 @@
+.footer {
+  display: flex;
+  justify-content: center; /* centers the element */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.element {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;           
+  background-color: hsl(var(--black)/0.2); 
+  padding: 10px 20px;    
+  border: 1px solid hsl(var(--blue)/0.4);
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
+}
+
+.copy {
+  color: white;
+  font-size: 14px;
+}
+
+.links {
+  display: flex;
+  gap: 20px;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: hsl(var(--blue));
+}

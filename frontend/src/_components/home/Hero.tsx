@@ -1,0 +1,22 @@
+"use client"
+import styles from "@/_styles/home/hero.module.css";
+
+const Hero = () => {
+  return (
+    <section className={styles.hero}>
+      <div className={styles.container}>
+        <h1 className={styles.title}>Welcome to Product Catalog</h1>
+        <p className={`${styles.subtitle}`}>
+  See all available products, stay up-to-date, and <span>enjoy a seamless experience.</span> 
+</p>
+
+        <div className={styles.actions}>
+          <button onClick={()=>window.location.href = "/product"} className={styles.primary}>Get Started</button>
+          <button className={styles.secondary}>Learn More</button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;

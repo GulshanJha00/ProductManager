@@ -1,0 +1,86 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  max-width: var(--max-width);
+  padding-block: 48px;
+  margin: 0 auto;
+}
+.hero>.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+.container> .title{
+    font-size: clamp(24px, 5vw, 48px);
+    font-weight: 200;
+    text-align: center;
+}
+.container > .subtitle{
+  font-size: clamp(24px, 5vw, 72px);
+  font-weight: 800;
+  text-align: center;
+  padding: 40px;
+}
+.subtitle > span {
+  background: -webkit-linear-gradient(
+    270.5deg,
+    hsl(var(--blue)) 33%,
+    hsl(var(--pink)) 80%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.actions .primary {
+  padding: 12px 24px;
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: linear-gradient(135deg, hsl(var(--blue)), hsl(var(--pink)));
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.actions .primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.actions .secondary {
+  padding: 12px 24px;
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: 600;
+  border: 2px solid hsl(var(--blue));
+  border-radius: 8px;
+  cursor: pointer;
+  background: transparent;
+  color: hsl(var(--blue));
+  transition: all 0.3s ease;
+}
+
+.actions .secondary:hover {
+  background: hsl(var(--blue));
+  color: white;
+}
+@media screen  and (max-width:600px){
+  .hero>.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+}

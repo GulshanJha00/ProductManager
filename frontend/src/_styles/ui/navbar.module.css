@@ -4,7 +4,7 @@
   justify-content: center; /* centers the element */
   width: 100%;
   padding: 10px 0;
-  cursor: pointer;
+  position: absolute;
   box-sizing: border-box;
 }
 
@@ -12,14 +12,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;           
-  background-color: hsl(var(--black)/0.2); 
-  padding: 10px 20px;    
-  border-radius: 10px;  
-  border: 1px solid hsl(var(--blue)/0.4);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  width: 90%;
+  background-color: hsl(var(--black) / 0.2);
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid hsl(var(--blue) / 0.4);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
-
+.element > .title > h1 {
+  font-size: 36px;
+}
 .links {
   display: flex;
   gap: 20px;
@@ -38,4 +40,9 @@
 .link:hover {
   color: hsl(var(--blue)); /* highlight on hover */
   cursor: pointer;
+}
+@media screen and (max-width: 600px) {
+  .element > .title > h1 {
+    font-size: 12px;
+  }
 }

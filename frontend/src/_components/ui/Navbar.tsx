@@ -4,7 +4,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.element}>
-        <div>
+        <div className={styles.title}>
           <h1>Project Manager</h1>
         </div>
 
