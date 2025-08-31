@@ -12,7 +12,7 @@ const Hero = () => {
 
         <div className={styles.actions}>
           <button onClick={()=>window.location.href = "/product"} className={styles.primary}>Get Started</button>
-          <button className={styles.secondary}>Learn More</button>
+          <button onClick={()=>window.location.href = "/manage"} className={styles.secondary}>Login as Admin</button>
         </div>
       </div>
     </section>

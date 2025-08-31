@@ -1,7 +1,6 @@
 .footer {
   display: flex;
   justify-content: center; /* centers the element */
-  position: absolute;
   bottom: 0;
   width: 100%;
   box-sizing: border-box;

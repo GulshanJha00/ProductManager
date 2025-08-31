@@ -1,8 +1,8 @@
-.features {
+.testimonials {
   display: flex;
   justify-content: center;
   padding: 80px 20px;
-  background-color: hsl(var(--black)/0.05);
+  background-color: hsl(var(--black)/0.02);
 }
 
 .container {
@@ -45,24 +45,28 @@
   width: 280px;
   text-align: center;
   transition: transform 0.3s ease;
-  cursor: default;
 }
 
 .card:hover {
-  transform: scale(105%);
+  transform: translateY(-6px);
 }
 
-.title {
-  font-size: 20px;
+.message {
+  font-size: 16px;
+  font-weight: 400;
+  color: hsl(var(--black)/0.85);
+  margin-bottom: 16px;
+}
+
+.name {
   font-weight: 600;
-  margin-bottom: 12px;
+  font-size: 18px;
   color: hsl(var(--blue));
 }
 
-.desc {
-  font-size: 16px;
-  font-weight: 400;
-  color: hsl(var(--black)/0.8);
+.role {
+  font-size: 14px;
+  color: hsl(var(--black)/0.6);
 }
 
 @media screen and (max-width: 768px) {
