@@ -1,6 +1,8 @@
 "use client"
 import { useState } from "react";
 import styles from "@/_styles/auth/login.module.css";
+import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("admin@gmail.com");
@@ -9,7 +11,10 @@ export default function LoginPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+    if (!email || !password) {
+      toast.error("Email and password are required!");
+      return;
+    }
     const res = await fetch("/api/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -67,6 +72,8 @@ export default function LoginPage() {
           </button>
         </form>
       </div>
+            <ToastContainer position="top-right" autoClose={2000} />
+
     </div>
   );
 }
