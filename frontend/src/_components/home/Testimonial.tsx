@@ -19,14 +19,12 @@ const Testimonials = () => {
       message: "The interface is clean, intuitive, and super responsive.",
     },
   ];
-
   return (
     <section className={styles.testimonials}>
       <div className={styles.container}>
         <h2 className={styles.heading}>
           What Our <span>Users</span> Say
         </h2>
-
         <div className={styles.cards}>
           {testimonials.map((t, idx) => (
             <div key={idx} className={styles.card}>
