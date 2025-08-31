@@ -45,4 +45,8 @@
   .element > .title > h1 {
     font-size: 12px;
   }
+  .link {
+    font-size: 10px;
+}
+
 }

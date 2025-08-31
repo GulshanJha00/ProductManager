@@ -30,7 +30,7 @@ const Testimonials = () => {
         <div className={styles.cards}>
           {testimonials.map((t, idx) => (
             <div key={idx} className={styles.card}>
-              <p className={styles.message}>"{t.message}"</p>
+              <p className={styles.message}>&quot;{t.message}&quot;</p>
               <h3 className={styles.name}>{t.name}</h3>
               <span className={styles.role}>{t.role}</span>
             </div>

@@ -8,15 +8,13 @@ const Footer = () => {
         <p className={styles.copy}>&copy; {new Date().getFullYear()} Project Manager</p>
         
         <div className={styles.links}>
-          <Link href="/about" legacyBehavior>
-            <a className={styles.link}>About</a>
+          <Link href="/product">
+            <span className={styles.link}>Products</span>
           </Link>
-          <Link href="/contact" legacyBehavior>
-            <a className={styles.link}>Contact</a>
+          <Link href="/contact" >
+            <span className={styles.link}>Contact</span>
           </Link>
-          <Link href="/privacy" legacyBehavior>
-            <a className={styles.link}>Privacy</a>
-          </Link>
+          
         </div>
       </div>
     </footer>
