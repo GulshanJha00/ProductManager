@@ -1,0 +1,82 @@
+.container {
+  max-width: 100vw;
+  margin: 2rem auto;
+  padding-block: 84px;
+  min-height: 100vh;
+  border-radius: 12px;
+  color: #fff;
+  padding-left: 24px;
+  padding-right: 24px;
+
+  font-family: Arial, sans-serif;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.addBtn {
+  background-color: #f59e0b; /* yellow */
+  color: #1f1f1f;
+  padding: 0.5rem 1rem;
+  border: none;
+  text-align: right; 
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.addBtn:hover {
+  background-color: #d97706;
+}
+
+.table {
+  width: 100%;
+  background-color: #1f1f1f;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+.table td {
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.editBtn {
+  background-color: #3b82f6; /* blue */
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border: none;
+  border-radius: 6px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.editBtn:hover {
+  background-color: #2563eb;
+}
+
+.deleteBtn {
+  background-color: #ef4444; /* red */
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.deleteBtn:hover {
+  background-color: #b91c1c;
+}
