@@ -1,74 +1,41 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import styles from "@/_styles/products/products.module.css";
 
 interface Product {
- product_id: number;
+  product_id: number;
   product_name: string;
   product_desc: string;
   status: string;
   created_by: string;
   created_at: string;
   updated_by: string | null;
-  updated_at: string |null;
+  updated_at: string | null;
+  is_deleted: boolean;
 }
-const initialProducts = [
-  {
-    product_id: 1,
-    product_name: "Product A",
-    product_desc:
-      "Product A is an elegant, lightweight item ideal for everyday use. It features great build quality and reliable performance.",
-    status: "Published",
-    created_by: "Admin",
-    created_at: "2025-08-01",
-    updated_by: "Editor",
-    updated_at: "2025-08-10",
-    is_deleted: false,
-  },
-  {
-    product_id: 2,
-    product_name: "Product B",
-    product_desc:
-      "Product B focuses on affordability without sacrificing utility — perfect for budget-conscious users.",
-    status: "Draft",
-    created_by: "Admin",
-    created_at: "2025-08-05",
-    updated_by: null,
-    updated_at: null,
-    is_deleted: false,
-  },
-  {
-    product_id: 3,
-    product_name: "Product C (Archived)",
-    product_desc: "Old promotional product — archived and hidden from live view.",
-    status: "Archived",
-    created_by: "System",
-    created_at: "2025-07-20",
-    updated_by: null,
-    updated_at: null,
-    is_deleted: true,
-  },
-  {
-    product_id: 4,
-    product_name: "Product B",
-    product_desc:
-      "Product B focuses on affordability without sacrificing utility — perfect for budget-conscious users.",
-    status: "Published",
-    created_by: "Admin",
-    created_at: "2025-08-05",
-    updated_by: null,
-    updated_at: null,
-    is_deleted: false,
-  },
-];
 
 export default function Page() {
-  const [selected, setSelected] = useState<Product | null>();
+  const [products, setProducts] = useState<Product[]>([]);
+  const [selected, setSelected] = useState<Product | null>(null);
+
+  // Fetch products from backend
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await axios.get("http://localhost:3001/api/getItem");
+        setProducts(res.data);
+      } catch (err) {
+        console.error("Failed to fetch products:", err);
+      }
+    };
+    fetchProducts();
+  }, []);
 
   // Show only published & not deleted
-  const visibleProducts = initialProducts.filter(
-    (p) => p.is_deleted === false && p.status === "Published"
+  const visibleProducts = products.filter(
+    (p) => !p.is_deleted && p.status === "Published"
   );
 
   return (
@@ -145,13 +112,12 @@ export default function Page() {
                 <li>
                   <strong>Created At:</strong> {selected.created_at}
                 </li>
-                 <li>
+                <li>
                   <strong>Updated By:</strong> {selected.updated_by}
                 </li>
-                 <li>
+                <li>
                   <strong>Updated At:</strong> {selected.updated_at}
                 </li>
-                
               </ul>
             </div>
 

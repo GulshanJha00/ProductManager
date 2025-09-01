@@ -3,11 +3,13 @@ import React, { useEffect, useState } from "react";
 import styles from "@/_styles/manage/manage.module.css";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { toast } from "react-toastify";
 interface Product {
   product_id: number;
   product_name: string;
   product_desc: string;
   status: "Draft" | "Published" | "Archived";
+  is_deleted: boolean;
 }
 
 const ManagePage = () => {
@@ -18,7 +20,7 @@ const ManagePage = () => {
   const router = useRouter();
   useEffect(() => {
     const fetchItem = async () => {
-      const response = await axios.get("http://localhost:3001/api/getItem");
+      const response = await axios.get("http://localhost:3001/api/getItemAdmin");
       console.log(response.data);
       setProducts(response.data);
     };
@@ -36,13 +38,13 @@ const ManagePage = () => {
 
     try {
       const res = await axios.put(`http://localhost:3001/delete/${deleteId}`);
-      alert(res.data.message);
+      toast.success(res.data.message);
       setProducts(
         products?.filter((prod) => prod.product_id !== deleteId) || []
       );
     } catch (err: any) {
       console.error(err);
-      alert("Error deleting product: " + err.message);
+      toast.error("Error deleting product: " + err.message);
     } finally {
       setShowModal(false);
       setDeleteId(null);
@@ -66,16 +68,18 @@ const ManagePage = () => {
             <th>Name</th>
             <th>Description</th>
             <th>Status</th>
+            <th>isDeleted</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody className={styles.tbody}>
-          {products.map((prod) => (
+          {products!.map((prod) => (
             <tr key={prod.product_id}>
               <td>{prod.product_id}</td>
               <td>{prod.product_name}</td>
               <td>{prod.product_desc}</td>
               <td>{prod.status}</td>
+              <td>{prod.is_deleted}</td>
               <td>
                 <button
                   className={styles.editBtn}

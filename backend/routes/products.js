@@ -5,8 +5,10 @@ const { addProduct } = require("../controllers/addProduct");
 const { getProducts } = require("../controllers/getProducts");
 const { getProductById } = require("../controllers/getProductById");
 const { updateProduct } = require("../controllers/updateProduct");
+const { getProductAdmin } = require("../controllers/getProductAdmin");
 
 router.get("/api/getItem", getProducts);
+router.get("/api/getItemAdmin", getProductAdmin);
 router.get("/api/products/:id", getProductById);
 
 router.post("/api/addItem", addProduct);
