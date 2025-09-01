@@ -42,9 +42,9 @@ const ManagePage = () => {
       setProducts(
         products?.filter((prod) => prod.product_id !== deleteId) || []
       );
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-      toast.error("Error deleting product: " + err.message);
+      toast.error("Error deleting product: " + err);
     } finally {
       setShowModal(false);
       setDeleteId(null);

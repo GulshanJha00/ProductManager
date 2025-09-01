@@ -43,7 +43,7 @@ const EditProductPage = () => {
       });
       toast.success("Product updated successfully");
       router.push("/manage");
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
       toast.error("Error updating product");
     }
