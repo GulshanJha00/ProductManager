@@ -11,7 +11,6 @@ interface Product {
 }
 
 const ManagePage = () => {
-  // Dummy products for now
   const [products, setProducts] = useState<Product[] | null>([]);
   const [showModal, setShowModal] = useState(false);
   const [deleteId, setDeleteId] = useState<number | null>(null);
@@ -33,11 +32,10 @@ const ManagePage = () => {
 
   const confirmDelete = async () => {
     if (!deleteId) return;
+    console.log(deleteId);
 
     try {
-      const res = await axios.delete(
-        `http://localhost:3001/api/products/${deleteId}`
-      );
+      const res = await axios.put(`http://localhost:3001/delete/${deleteId}`);
       alert(res.data.message);
       setProducts(
         products?.filter((prod) => prod.product_id !== deleteId) || []
@@ -79,7 +77,14 @@ const ManagePage = () => {
               <td>{prod.product_desc}</td>
               <td>{prod.status}</td>
               <td>
-                <button className={styles.editBtn}>Edit</button>
+                <button
+                  className={styles.editBtn}
+                  onClick={() =>
+                    router.push(`/manage/editProduct/${prod.product_id}`)
+                  }
+                >
+                  Edit
+                </button>
                 <button
                   className={styles.deleteBtn}
                   onClick={() => openDeleteModal(prod.product_id)}
