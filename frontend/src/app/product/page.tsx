@@ -24,7 +24,7 @@ export default function Page() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:3001/api/getItem");
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_URI}/api/getItem`);
         setProducts(res.data);
       } catch (err) {
         console.error("Failed to fetch products:", err);

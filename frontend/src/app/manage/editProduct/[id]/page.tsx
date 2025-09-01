@@ -22,7 +22,7 @@ const EditProductPage = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:3001/api/products/${id}`);
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_URI}/api/products/${id}`);
         setProduct(res.data);
       } catch (err) {
         console.error(err);
@@ -37,7 +37,7 @@ const EditProductPage = () => {
     if (!product) return;
 
     try {
-      await axios.put(`http://localhost:3001/api/products/${id}`, {
+      await axios.put(`${process.env.NEXT_PUBLIC_URI}/api/products/${id}`, {
         ...product,
         updated_by: "admin",
       });

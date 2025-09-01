@@ -12,7 +12,7 @@ const AddProductPage = () => {
     e.preventDefault();
     try {
       console.log("sendong backend")
-      const res = await axios.post("http://localhost:3001/api/addItem", {
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_URI}/api/addItem`, {
         product_name: name,
         product_desc: description,
         status,

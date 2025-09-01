@@ -20,7 +20,7 @@ const ManagePage = () => {
   const router = useRouter();
   useEffect(() => {
     const fetchItem = async () => {
-      const response = await axios.get("http://localhost:3001/api/getItemAdmin");
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_URI}/api/getItemAdmin`);
       console.log(response.data);
       setProducts(response.data);
     };
@@ -37,7 +37,7 @@ const ManagePage = () => {
     console.log(deleteId);
 
     try {
-      const res = await axios.put(`http://localhost:3001/delete/${deleteId}`);
+      const res = await axios.put(`${process.env.NEXT_PUBLIC_URI}/delete/${deleteId}`);
       toast.success(res.data.message);
       setProducts(
         products?.filter((prod) => prod.product_id !== deleteId) || []
