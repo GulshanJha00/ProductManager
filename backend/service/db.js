@@ -1,15 +1,19 @@
 const mysql = require("mysql2");
-require("dotenv").config();
 
-const pool = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: process.env.DB_PASSWORD,
-  database: "product_cms",
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
+const db = mysql.createConnection({
+  host: process.env.MYSQLHOST,
+  user: process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD,
+  database: process.env.MYSQLDATABASE,
+  port: process.env.MYSQLPORT,
 });
 
-// ✅ Export the pool (not just object) so .query works
-module.exports = pool;
+db.connect((err) => {
+  if (err) {
+    console.error("Database connection failed: " + err.stack);
+    return;
+  }
+  console.log("Connected to Railway MySQL!");
+});
+
+module.exports = db;
