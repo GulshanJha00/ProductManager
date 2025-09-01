@@ -2,7 +2,6 @@ const db = require("../service/db");
 exports.deleteProduct = (req, res) => {
   const { id } = req.params;
 
-    console.log(id)
 
   const sql = `
     UPDATE Products 

@@ -20,3 +20,9 @@ const Hero = () => {
 };
 
 export default Hero;
+
+//INSERT INTO Products (product_name, product_desc, created_by, status) VALUES ('Product A', 'Description for Product A', 'admin', 'Published');
+
+//INSERT INTO Products (product_name, product_desc, created_by, status) VALUES ('Product B', 'Description for Product B', 'admin', 'Draft');
+
+//INSERT INTO Products (product_name, product_desc, created_by, status) VALUES ('Product B', 'Description for Product B', 'admin', 'Archived');

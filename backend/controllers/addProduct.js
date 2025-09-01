@@ -1,7 +1,6 @@
 const db = require("../service/db");
 exports.addProduct = (req, res) => {
   const { product_name, product_desc, status, created_by } = req.body;
-  console.log(product_name, product_desc, status, created_by);
   try {
     const sql =
       "INSERT INTO Products (product_name, product_desc, status, created_by) VALUES (?, ?, ?, ?)";
