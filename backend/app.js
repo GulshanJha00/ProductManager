@@ -10,11 +10,9 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/products", productsRouter);
+app.use("/", productsRouter);
 
-app.get("/", (req, res) => {
-  res.send("Products CMS Backend running");
-});
+
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

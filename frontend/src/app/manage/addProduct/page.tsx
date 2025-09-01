@@ -2,16 +2,17 @@
 import React, { useState } from "react";
 import styles from "@/_styles/manage/addProduct.module.css";
 import axios from "axios";
-
+import { useRouter } from "next/navigation";
 const AddProductPage = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [status, setStatus] = useState("Draft");
-
+  const route = useRouter()
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://lo/api/products", {
+      console.log("sendong backend")
+      const res = await axios.post("http://localhost:3001/api/addItem", {
         product_name: name,
         product_desc: description,
         status,
@@ -19,6 +20,7 @@ const AddProductPage = () => {
       });
 
       console.log("Product added:", res.data);
+      route.push("/manage")
     } catch (err) {
       console.error("Error adding product:", err);
     }

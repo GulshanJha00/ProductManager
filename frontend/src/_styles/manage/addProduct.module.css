@@ -1,8 +1,8 @@
 .container {
   max-width: 700px;
-  margin: 2rem auto;
   padding-block: 84px;
-
+  margin: auto;
+  min-height: 100vh;
   color: #fff;
 }
 
